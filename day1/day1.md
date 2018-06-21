@@ -25,8 +25,27 @@ The Progressive JavaScript Framework
 * Vue.js 관련 플러그인 설치
 
 ---
+## Vue 시작하기 
+cdn 에서 Vue.js를 불러온다.
+```html
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+```
 ## Vue Instance
 Vue 생성자로 생성된 뷰모델
+```html
+<div id="app">
+    {{ message }}
+</div>
+```
+```javascript
+// Vue 인스턴스 생성자
+new Vue({
+    el : '#app', // el 속성 
+    data : { // data 속성
+        message : 'Hello Vue.js!'
+    }
+});
+```
 
 ### Vue 인스턴스 유효 범위
 el속성으로 지정한 요소로 제한
