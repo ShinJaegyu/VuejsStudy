@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Nested Router</title>
+</head>
+<body>
+    <div id="app">        
+        <!-- URL값을 변경하는 태그-->
+        <router-link to="/">Root</router-link> <br>
+        <router-link to="/user">User</router-link>
+        <!-- User 컴포넌트가 뿌려질 영역 -->    
+        <router-view></router-view>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script>
+        // 컴포넌트 정의
+        var User = {
+            template: `
+                <div>
+                    User Component <br>
+                    <!-- URL값을 변경하는 태그-->
+                    <router-link to="/user/profile">User Profile Link</router-link>
+                    <router-link to="/user/post">User Post Link</router-link>
+                    <!-- 하위 컴포넌트가 뿌려질 영역 -->
+                    <router-view></router-view>
+                </div>
+            `
+        };
+                
+        // User 컴포넌트의 하위 컴포넌트
+        var UserProfile = { template: '<div>User Profile</div>' };
+        var UserPost = { template: '<div>User Post</div>' };
+
+        // 네스티드 라우팅 정의
+        var routes = [
+            { 
+                path: '/user', 
+                component: User,
+                children: [
+                    {
+                        path: 'post',
+                        component: UserPost
+                    },
+                    {
+                        path: 'profile',
+                        component: UserProfile
+                    }
+                ]
+            }            
+        ];
+
+        // Vue 라우터 정의
+        var router = new VueRouter({
+            routes
+        });
+
+        // Vue 인스턴스에 라우터 추가
+        var app = new Vue({
+            router
+        }).$mount('#app');
+    </script>
+</body>
+</html>
