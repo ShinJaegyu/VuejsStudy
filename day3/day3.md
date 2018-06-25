@@ -17,8 +17,7 @@ cdn에서 vue resource를 불러온다.
 // URL 주소를 가져온다.
 this.$http.get('URL주소')
 .then(function(response){
-    console.log(response);
-    console.log(JSON.parse(response.data));
+    console.log(response);    
 });
 ...
 ```

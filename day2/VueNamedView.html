@@ -1,57 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue.js Named View Router</title>
-  </head>
-  <body>
-      <div id="app">
-      <!-- URL값을 변경하는 태그-->
-      <router-link to="/">Body</router-link> <br>
-      <router-link to="/body2">Body2</router-link>
+</head>
+<body>
+    <div id="app">
+        <!-- URL값을 변경하는 태그-->
+        <router-link to="/">Body</router-link> <br>
+        <router-link to="/body2">Body2</router-link>
 
-      <router-view name="header"></router-view>
-      <!-- name이 없으면 default -->
-      <router-view></router-view>
-      <router-view name="footer"></router-view>
+        <router-view name="header"></router-view>
+        <!-- name이 없으면 default -->
+        <router-view></router-view>
+        <router-view name="footer"></router-view>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.2/dist/vue.js"></script>
     <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
     <script>
-      // 컴포넌트 정의
-      var Body = { template: '<div>This is Body</div>' };
-      var Body2 = { template: '<div>This is Body2</div>' };
-      var Header = { template: '<div>This is Header</div>' };
-      var Footer = { template: '<div>This is Footer</div>' };
+        // 컴포넌트 정의
+        var Body = { template: '<div>This is Body</div>' };
+        var Body2 = { template: '<div>This is Body2</div>' };
+        var Header = { template: '<div>This is Header</div>' };
+        var Footer = { template: '<div>This is Footer</div>' };
 
-      // 라우터 정의
-      var router = new VueRouter({
-        routes: [
-          {
-            path: '/',
-            // router-view의 name속성과 컴포넌트를 연결
-            components: {
-              default: Body,
-              header: Header,
-              footer: Footer
-            }
-          },
-          {
-            path: '/body2',
-            components: {
-              default: Body2,
-              header: Header,
-              footer: Footer
-            }
-          }
-        ]
-      })
+        // 라우터 정의
+        var router = new VueRouter({
+            routes: [
+            {
+                path: '/',
+                // router-view의 name속성과 컴포넌트를 연결
+                components: {
+                    default: Body,
+                    header: Header,
+                    footer: Footer
+                }
+            },
+            {
+                path: '/body2',
+                components: {
+                    default: Body2,
+                    header: Header,
+                    footer: Footer
+                }
+            }]
+        });
 
-      var app = new Vue({
-        router
-      }).$mount('#app');
+        var app = new Vue({
+            router
+        }).$mount('#app');
     </script>
-  </body>
+</body>
 </html>
