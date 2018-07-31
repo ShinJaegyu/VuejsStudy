@@ -1,7 +1,7 @@
 Vue.js Study
 ===
 
-Vue.js를 공부하고 올리는 리포지토리
+Vue.js를 공부하고 올리는 리포지토리 <br>
 Do it! Vue.js 입문 책을 읽고 정리했습니다.
 
 ## Day1
